@@ -9,9 +9,13 @@ Currently, two official plugins are available:
 
 
 ```txt
+PAGES ---> 
 home page
 category page 
 search page 
 single gif page
 favorites page 
+
+
+
 ```
