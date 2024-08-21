@@ -4,8 +4,8 @@ import Header from "../components/Header/Header";
 
 function AppLayout() {
   return (
-    <div className="bg-slate-900 text-white min-h-screen">
-      <div className="container marker px-8 py-6 mx-auto">
+    <div className="bg-gray-950 text-white min-h-screen">
+      <div className="container marker px-8 py-3 mx-auto">
         <Header/>
         <main>
           <Outlet />
