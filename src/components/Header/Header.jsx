@@ -16,7 +16,7 @@ function Header() {
     data: categories,
     isLoading: categoriesLoading,
     isError: categoriesError,
-  } = useQuery(["coin", showCategories], () => fetchGifCategories(gf), {
+  } = useQuery(["coin"], () => fetchGifCategories(gf), {
     cacheTime: 1000 * 60 * 20,
     staleTime: 1000 * 60 * 20,
   });
