@@ -33,7 +33,7 @@ function Home() {
       </div>
 
       <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2">
-      
+      {(isLoading || isError) && <div className="skeleton h-[800px] w-full"></div>}
       {gifs && gifs.map((gif) => {
         return (<GifItem key={gif.slug} data={gif} />)
       })}
