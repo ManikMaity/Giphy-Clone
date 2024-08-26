@@ -9,9 +9,9 @@ function SearchBox({onclickfn}) {
   }
 
   return (
-    <form className='text-2xl w-full mt-2 flex rounded overflow-hidden '>
-      <input type="text" name="" id="" className='w-[92%] px-4 text-gray-950 py-5 outline-none border-none ' placeholder='Search gifs and skickers' />
-      <button onClick={onSubmit} type="submit" className='w-[8%] text-4xl grid place-content-center gradient outline-none border-none '><IoSearch /></button>
+    <form className='container text-lg md:text-xl w-full mt-2 flex rounded overflow-hidden '>
+      <input type="text" name="" id="" className='w-[92%] px-2 md:px-4 text-gray-950 py-2 bg-white md:py-4 outline-none border-none ' placeholder='Search gifs and skickers' />
+      <button onClick={onSubmit} type="submit" className='w-[8%] text-xl md:text-4xl grid place-content-center gradient outline-none border-none '><IoSearch /></button>
     </form>
   )
 }
