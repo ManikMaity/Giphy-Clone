@@ -21,7 +21,7 @@ function SortBtn({searchSort, setSearchSort}) {
     </button>
 
 
-    {showSort && <div className="h-36 w-56 bg-gray-900 absolute top-[110%] flex flex-col gap-2 right-0 rounded font-semibold px-6 py-4">
+    {showSort && <div className="h-36 w-56 bg-gray-900 z-20 absolute top-[110%] flex flex-col gap-2 right-0 rounded font-semibold px-6 py-4">
         <p className="mb-2">Sort Content By</p>
 
         <div className="w-full flex justify-between items-center">
