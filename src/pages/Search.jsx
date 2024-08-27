@@ -18,9 +18,6 @@ function Search() {
     staleTime : 60*1000*20
   })
 
-  console.log(data);
-
-
   return (
     <div className='w-full min-h-[400px] my-6'>
       

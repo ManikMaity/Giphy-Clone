@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { TbArrowsSort } from "react-icons/tb";
 
