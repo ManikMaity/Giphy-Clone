@@ -11,7 +11,8 @@ function Home() {
 
   const { data : gifs, isLoading, isError } = useQuery(
     ["trendingGifs", filter],
-    () => fetchTrendingGifs(gf, filter),
+    () => fetchTrendingGifs(gf, filter, 30),
+    
     {
       cacheTime: 60 * 1000 * 20,
       staleTime: 60 * 100 * 20,
