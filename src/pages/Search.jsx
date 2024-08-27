@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { GifState } from '../context/gif-Context';
 import { useQuery } from 'react-query';
 import fetchSearchData from '../services/fetchSearchData';
-import SortBtn from '../components/SearchComponents/sortBtn';
+import SortBtn from '../components/SearchComponents/SortBtn';
 import { MdOutlineGifBox } from 'react-icons/md';
 import GifItem from '../components/GifItem/GifItem';
 import HomeFilterChange from '../components/HomeFilterChange/HomeFilterChange';
