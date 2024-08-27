@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { GifState } from '../context/gif-Context';
 import { useQuery } from 'react-query';
@@ -7,19 +7,25 @@ import SortBtn from '../components/SearchComponents/SortBtn';
 import { MdOutlineGifBox } from 'react-icons/md';
 import GifItem from '../components/GifItem/GifItem';
 import HomeFilterChange from '../components/HomeFilterChange/HomeFilterChange';
+import useCheckMobile from '../hooks/useCheckMobile';
+import useFetchSearchData from '../hooks/useFetchSearchData';
 
 function Search() {
 
+
+  const {isMobile} = useCheckMobile();
   const { text } = useParams();
-  const [searchSort, setSearchSort] = useState("relevant");
-  const [page, setPage] = useState(1);
 
-  const { gf, filter, setFilter, favorites } = GifState();
+  let {searchSort,
+    setSearchSort,
+    setPage,
+    setFilter,
+    data,
+    isFetched,
+    isLoading,
+    isError} = useFetchSearchData(text)
 
-  const {data, isFetched, isLoading, isError} = useQuery(["search", text, filter, searchSort, page], () => fetchSearchData(gf, text, searchSort, 20, filter, page), {
-    cacheTime : 60*1000*20,
-    staleTime : 60*1000*20
-  })
+
 
   console.log(data)
 
@@ -33,14 +39,14 @@ function Search() {
         <MdOutlineGifBox />
           </p>}
         </div>
-        <div className='md:flex gap-3 justify-end hidden md:w-2/3'>
-          <HomeFilterChange/>
+        <div className='flex gap-3 justify-end md:w-2/3'>
+          {isMobile == false && <HomeFilterChange/>}
         <SortBtn searchSort={searchSort} setSearchSort={setSearchSort}/>
         </div>
       </div>
 
-      <div className='w-full md:hidden block mb-4'>
-      <HomeFilterChange/>
+      <div className='w-full block mb-4'>
+      {isMobile && <HomeFilterChange/>}
       </div>
 
       <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2">

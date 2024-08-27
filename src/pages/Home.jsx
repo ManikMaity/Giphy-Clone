@@ -7,8 +7,8 @@ import { IoMdTrendingUp } from "react-icons/io";
 import GifItem from "../components/GifItem/GifItem";
 
 function Home() {
+  
   const { gf, filter, setFilter, favorites } = GifState();
-
   const { data : gifs, isLoading, isError } = useQuery(
     ["trendingGifs", filter],
     () => fetchTrendingGifs(gf, filter, 30),
@@ -19,7 +19,6 @@ function Home() {
     }
   );
 
-  console.log(gifs);
 
   return (
     <div className="w-full">
