@@ -16,6 +16,7 @@ function useFetchSearchData(text) {
   return {
     searchSort,
     setSearchSort,
+    page,
     setPage,
     setFilter,
     data,

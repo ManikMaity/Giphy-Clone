@@ -4,11 +4,12 @@ import { GifState } from '../context/gif-Context';
 import { useQuery } from 'react-query';
 import fetchSearchData from '../services/fetchSearchData';
 import SortBtn from '../components/SearchComponents/SortBtn';
-import { MdOutlineGifBox } from 'react-icons/md';
+import { MdNavigateNext, MdOutlineGifBox } from 'react-icons/md';
 import GifItem from '../components/GifItem/GifItem';
 import HomeFilterChange from '../components/HomeFilterChange/HomeFilterChange';
 import useCheckMobile from '../hooks/useCheckMobile';
 import useFetchSearchData from '../hooks/useFetchSearchData';
+import { GrFormPrevious } from 'react-icons/gr';
 
 function Search() {
 
@@ -19,6 +20,7 @@ function Search() {
   let {searchSort,
     setSearchSort,
     setPage,
+    page,
     setFilter,
     data,
     isFetched,
@@ -45,7 +47,11 @@ function Search() {
         </div>
       </div>
 
-      <div className='w-full block mb-4'>
+      <div className='w-full flex flex-col gap-2 items-end mb-4'>
+      <div className="join gap-2">
+        <button className="join-item btn btn-sm" onClick={() => setPage(page-20)} disabled={page < 2}><GrFormPrevious /></button>
+        <button className="join-item btn btn-sm" onClick={() => setPage(page + 20)}><MdNavigateNext /></button>
+      </div>
       {isMobile && <HomeFilterChange/>}
       </div>
 
