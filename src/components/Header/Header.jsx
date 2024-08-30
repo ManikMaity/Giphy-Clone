@@ -9,8 +9,7 @@ import { useQuery } from "react-query";
 import fetchGifCategories from "../../services/fetchGifCategories";
 
 function Header() {
-  const [showCategories, setShowCategories] = useState(false);
-  const { gf, filter, setFilter, favorites } = GifState();
+  const { gf, filter, setFilter, favorites, showCategories, setShowCategories } = GifState();
 
   const {
     data: categories,

@@ -6,3 +6,8 @@ export function makeTextShorter (text = "", length = 10){
         return text;
     }
 }
+
+
+export function makeFirstCharUpperCase (text = "") {
+    return `${text.slice(0, 1).toUpperCase()}${text.slice(1).toLowerCase()}`
+}
