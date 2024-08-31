@@ -59,7 +59,7 @@ function GifItem({ data, hover = true }) {
         </div>
       </Link>
 
-      {hover && <div className="flex md:hidden md:group-hover:flex gap-1 z-20 text-xl items-center rounded-md bg-[#00000055] absolute top-[5%] right-[5%] transition-all h-12 w-20">
+      {hover && <div className="flex md:hidden md:group-hover:flex gap-1 text-xl items-center rounded-md bg-[#00000055] absolute top-[5%] right-[5%] transition-all h-12 w-20">
         {iconChange ? <IoMdCheckmark className="w-1/2 h-full hover:bg-[#00000083] rounded p-2" /> : <IoIosLink
           className="w-1/2 h-full hover:bg-[#00000083] rounded p-2"
           onClick={onLinkClick}

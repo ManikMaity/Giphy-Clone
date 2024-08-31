@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { RiVerifiedBadgeFill } from "react-icons/ri"
 import CategorySocial from "../CategoryComponents/CategorySocial"
+import { makeTextShorter } from "../../util/utilFn"
 
 function GifSideInfo({username = "unknown", image, description = "", displayName = "User"}) {
 
@@ -15,7 +16,7 @@ function GifSideInfo({username = "unknown", image, description = "", displayName
 
         
       </div>
-      <p className=" text-gray-400 mt-4">{description}</p>
+      <p className=" text-gray-400 mt-4">{makeTextShorter(description, 200)}</p>
       <div className="divider"></div>
       <div className="hidden md:block">
       <CategorySocial/>

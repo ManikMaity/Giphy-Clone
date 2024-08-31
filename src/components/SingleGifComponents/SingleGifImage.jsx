@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
-import { IoIosLink, IoMdCheckmark, IoMdEye } from "react-icons/io";
 import { RiShareForwardFill } from "react-icons/ri";
 
 function SingleGifImage({ name = "", image, tags = [], imageUrl, views }) {

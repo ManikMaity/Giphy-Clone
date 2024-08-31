@@ -7,9 +7,12 @@ import SearchBox from "./SearchBox";
 import { GifState } from "../../context/gif-Context";
 import { useQuery } from "react-query";
 import fetchGifCategories from "../../services/fetchGifCategories";
+import useCheckMobile from "../../hooks/useCheckMobile";
 
 function Header() {
   const { gf, filter, setFilter, favorites, showCategories, setShowCategories } = GifState();
+
+  const { isMobile } = useCheckMobile();
 
   const {
     data: categories,
@@ -61,7 +64,7 @@ function Header() {
             </div>
           )}
 
-          <button className="block md:hidden">
+          <button  onClick={() => setShowCategories(!showCategories)} className="block md:hidden">
             <FiAlignRight size={25} className="text-sky-400 " />
           </button>
         </div>
@@ -71,8 +74,9 @@ function Header() {
         <div className="absolute right-0 top-14 px-10 pt-6 pb-10 rounded w-full gradient z-20">
           <span className="text-3xl font-extrabold">Categories</span>
           <hr className="my-5"/>
+          
           <div className="grid grid-cols-2 md:grid-cols-5 text-lg font-semibold">
-          {categories &&
+          {(categories && isMobile == false)  &&
             categories.slice(5).map((category) => {
               return (
                 <Link className="leading-loose" key={category?.name} to={`/${category.name_encoded}`}>
@@ -80,7 +84,18 @@ function Header() {
                 </Link>
               );
             })}
+
+          {(categories && isMobile == true)  &&
+            categories.map((category) => {
+              return (
+                <Link className="leading-loose" key={category?.name} to={`/${category.name_encoded}`}>
+                  {category?.name}
+                </Link>
+              );
+            })}
+
           </div>
+
         </div>
       )}
 
