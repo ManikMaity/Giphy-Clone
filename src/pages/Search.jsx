@@ -10,6 +10,7 @@ import HomeFilterChange from '../components/HomeFilterChange/HomeFilterChange';
 import useCheckMobile from '../hooks/useCheckMobile';
 import useFetchSearchData from '../hooks/useFetchSearchData';
 import { GrFormPrevious } from 'react-icons/gr';
+import { makeUniqueKeyFromSlug } from '../util/utilFn';
 
 function Search() {
 
@@ -58,7 +59,7 @@ function Search() {
       <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2">
       {(isLoading || isError) && <div className="skeleton h-[800px] w-full"></div>}
       {isFetched && data.data.map(gifData => {
-        return (<GifItem key={gifData.slug} data={gifData} />)
+        return (<GifItem key={makeUniqueKeyFromSlug(gifData.slug)} data={gifData} />)
       } )}
       </div>
 

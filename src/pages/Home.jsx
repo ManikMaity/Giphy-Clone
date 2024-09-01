@@ -5,6 +5,7 @@ import fetchTrendingGifs from "../services/fetchTrendingGifs";
 import HomeFilterChange from "../components/HomeFilterChange/HomeFilterChange";
 import { IoMdTrendingUp } from "react-icons/io";
 import GifItem from "../components/GifItem/GifItem";
+import { makeUniqueKeyFromSlug } from "../util/utilFn";
 
 function Home() {
   
@@ -35,7 +36,7 @@ function Home() {
       <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2">
       {(isLoading || isError) && <div className="skeleton h-[800px] w-full"></div>}
       {gifs && gifs.map((gif) => {
-        return (<GifItem key={gif.slug} data={gif} />)
+        return (<GifItem key={makeUniqueKeyFromSlug(gif.slug)} data={gif} />)
       })}
       </div>
 

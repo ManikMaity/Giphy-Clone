@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { makeTextShorter } from "../../util/utilFn";
 import { IoIosLink, IoMdCheckmark } from "react-icons/io";
 import { MdFavorite } from "react-icons/md";
+import { GifState } from "../../context/gif-Context";
 
 function GifItem({ data, hover = true }) {
 
   const [iconChange, setIconChange] = useState(false);
+  let { favorites, setFavorites } = GifState();
 
   function onLinkClick(e) {
     e.stopPropagation();
@@ -21,6 +23,7 @@ function GifItem({ data, hover = true }) {
 
   function addedToFavorite(e) {
     e.stopPropagation();
+    setFavorites([...favorites, data])
     console.log("Added to favorite");
   }
 

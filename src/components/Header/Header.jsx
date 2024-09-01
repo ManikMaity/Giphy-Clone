@@ -10,7 +10,7 @@ import fetchGifCategories from "../../services/fetchGifCategories";
 import useCheckMobile from "../../hooks/useCheckMobile";
 
 function Header() {
-  const { gf, filter, setFilter, favorites, showCategories, setShowCategories } = GifState();
+  const { gf, favorites, showCategories, setShowCategories } = GifState();
 
   const { isMobile } = useCheckMobile();
 
