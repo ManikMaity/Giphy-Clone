@@ -11,7 +11,7 @@ import GifItem from '../components/GifItem/GifItem';
 
 function SingleGIF() {
 
-  const {type, text} = useParams();
+  const {text} = useParams();
   const [gifId, setGifId] = useState("");
   const {gf} = GifState();
 

@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { GifState } from '../context/gif-Context';
-import { useQuery } from 'react-query';
-import fetchSearchData from '../services/fetchSearchData';
 import SortBtn from '../components/SearchComponents/SortBtn';
 import { MdNavigateNext, MdOutlineGifBox } from 'react-icons/md';
 import GifItem from '../components/GifItem/GifItem';

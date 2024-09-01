@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, {useState } from "react";
 import { Link } from "react-router-dom";
-import { makeTextShorter } from "../../util/utilFn";
+import { makeTextShorter, updatedFavInStorage } from "../../util/utilFn";
 import { IoIosLink, IoMdCheckmark } from "react-icons/io";
 import { MdFavorite } from "react-icons/md";
 import { GifState } from "../../context/gif-Context";
@@ -21,11 +21,21 @@ function GifItem({ data, hover = true }) {
     console.log("Link copied");
   }
 
+
   function addedToFavorite(e) {
     e.stopPropagation();
-    setFavorites([...favorites, data])
-    console.log("Added to favorite");
+    if(favorites.includes(data.id)){
+      let updatedFavs = favorites.filter(favId => favId != data.id);
+      setFavorites(updatedFavs);
+      updatedFavInStorage(updatedFavs);
+    }
+    else {
+      setFavorites([...favorites, data.id]);
+      updatedFavInStorage(favorites);
+    }
   }
+
+ 
 
   return (
     <div className="relative group">

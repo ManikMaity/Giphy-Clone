@@ -21,3 +21,14 @@ export function getIdFromSlug(slug){
     const arr =  slug.split("-");
     return arr[arr.length - 1];
 }
+
+
+export function updatedFavInStorage (favorites = []){
+    let json =  JSON.stringify(favorites);
+    localStorage.setItem("favGifs", json);
+}
+
+export function getFavFromStorage (){
+    let favJson = localStorage.getItem("favGifs");
+    return JSON.parse(favJson);
+}

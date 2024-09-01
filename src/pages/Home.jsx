@@ -1,4 +1,3 @@
-import React from "react";
 import { GifState } from "../context/gif-Context";
 import { useQuery } from "react-query";
 import fetchTrendingGifs from "../services/fetchTrendingGifs";
@@ -9,7 +8,7 @@ import { makeUniqueKeyFromSlug } from "../util/utilFn";
 
 function Home() {
   
-  const { gf, filter, setFilter, favorites } = GifState();
+  const { gf, filter } = GifState();
   const { data : gifs, isLoading, isError } = useQuery(
     ["trendingGifs", filter],
     () => fetchTrendingGifs(gf, filter, 30),
@@ -23,7 +22,6 @@ function Home() {
 
   return (
     <div className="w-full">
-
       <div className="flex items-center justify-between my-2">
         <div className="hidden md:flex gap-2 items-center text-lg text-gray-500 font-bold">
           <IoMdTrendingUp className="text-blue-600" />
