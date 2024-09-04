@@ -1,11 +1,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { lazy } from 'react'
 import './App.css'
 import AppLayout from './pages/AppLayout'
 import Home from './pages/Home'
-import Categories from './pages/Categories'
-import Search from './pages/Search'
-import SingleGIF from './pages/SingleGIF'
-import Favorites from './pages/Favorites'
+const Categories = lazy(() => import("./pages/Categories"));
+const Search = lazy(() => import("./pages/Search"));
+const SingleGIF = lazy(() => import("./pages/SingleGIF"));
+const Favorites = lazy(() => import("./pages/Favorites"));
+
 import GifProvider from './context/gif-Context'
 
 
