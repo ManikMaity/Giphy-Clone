@@ -15,6 +15,7 @@ A feature-rich Giphy clone built with React.js, allowing users to browse, search
 - Browse GIFs within specific categories (e.g., Anime) and search within the category.
 - Save GIFs to your Favorites list, manage Favorites, and retrieve them from local storage with Favorites button visible in the Navbar.
 - Error handling using React Error Boundary.
+- Inplement lazy componet loading and suspence.
 
 ## Preview Images 
 
